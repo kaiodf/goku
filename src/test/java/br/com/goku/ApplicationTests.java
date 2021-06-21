@@ -1,6 +1,5 @@
-package com.socket.banco;
+package br.com.goku;
 
-import br.com.goku.Application;
 import mockit.Injectable;
 import mockit.Tested;
 import mockit.integration.junit4.JMockit;

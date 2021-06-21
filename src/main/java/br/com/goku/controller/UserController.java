@@ -1,4 +1,4 @@
-package br.com.goku.rest;
+package br.com.goku.controller;
 
 import br.com.goku.dto.UserDto;
 import br.com.goku.model.User;
@@ -16,7 +16,7 @@ import java.util.Objects;
 @Api
 @RestController
 @RequestMapping(value = "/user")
-public class UserRest {
+public class UserController {
 
     @Autowired
     UserService userService;

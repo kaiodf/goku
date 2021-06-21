@@ -1,4 +1,4 @@
-package br.com.goku.rest;
+package br.com.goku.controller;
 
 import br.com.goku.dto.AdressDto;
 import br.com.goku.model.Adress;
@@ -15,7 +15,7 @@ import java.util.Objects;
 @Api
 @RestController
 @RequestMapping(value = "/adress")
-public class AdressRest {
+public class AdressController {
 
     @Autowired
     AdressService adressService;
@@ -27,7 +27,7 @@ public class AdressRest {
     }
 
     @RequestMapping(value = "{cep}", method = RequestMethod.GET)
-    public ResponseEntity<AdressDto> consultarCep(@PathVariable("cep") String cep){
+    public ResponseEntity<AdressDto> findByCep(@PathVariable("cep") String cep){
         AdressDto dto = adressService.findByCep(cep);
         if(Objects.nonNull(dto)) {
             return new ResponseEntity<>(dto, HttpStatus.OK);

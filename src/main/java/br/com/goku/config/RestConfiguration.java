@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "br.com.goku")
+@ComponentScan(basePackages = "br.com.goku.controller")
 public class RestConfiguration  extends WebMvcConfigurerAdapter {
 
     @Override

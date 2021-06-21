@@ -8,6 +8,7 @@ import br.com.goku.service.AdressService;
 import com.google.common.base.Strings;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,6 +21,7 @@ public class AdressServiceImpl implements AdressService {
     UserRepository userRepository;
 
     @Override
+    @Cacheable(value = "adressCep", unless = "#result==null")
     public AdressDto findByCep(String cep) {
         if(Strings.isNullOrEmpty(cep)){
            return null;
@@ -32,10 +34,6 @@ public class AdressServiceImpl implements AdressService {
 
     @Override
     public Adress create(Adress adress) {
-//        if(Objects.nonNull(endereco.getUser())) {
-//            User user = userRepository.getOne(endereco.getUser().getId());
-//            endereco.setUser(user);
-//        }
         return adressRepository.save(adress);
     }
 }

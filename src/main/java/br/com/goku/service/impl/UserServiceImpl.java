@@ -7,6 +7,7 @@ import br.com.goku.repository.UserRepository;
 import br.com.goku.service.UserService;
 import br.com.goku.util.Converter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
+    @Cacheable(value = "userS", unless = "#result == null")
     public UserDto get(Long id) {
         User user = userRepository.findById(id);
         return (UserDto) Converter.toModel(user,UserDto.class);

@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "8fefa1a8-725b-4225-8344-b6b9eb57a5f8",
+		"name": "goku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrYWlvZGZAZ21haWwuY29tIiwiaWF0IjoxNjI0MjM3MTQxLCJleHAiOjE2MjQyNTUxNDF9.vge8WC04Hg29VgfuxUs-aIiIkKPUIdWS7JF3mKQ4jCc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"email\":\"sueli@gmail.com\",\r\n   \"name\":\"sueli\",\r\n   \"password\":\"password\",\r\n   \"created_at\":\"2021-06-20 09:10:02.047\",\r\n   \"adresses\":[\r\n       {\"logradouro\":\"Avenida Delmar\",\r\n       \"numero\":\"277\",\r\n       \"bairro\":\"alphavile\",\r\n       \"cidade\":\"santana\",\r\n       \"cep\":\"06465135\"}\r\n       ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Adress",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrYWlvZGZAZ21haWwuY29tIiwiaWF0IjoxNjI0MjQxMjQ5LCJleHAiOjE2MjQyNTkyNDl9.-nGuGD_ejo5LWF2Ky30tvTPgCtm4p5RYrRCGeELsuJM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"logradouro\":\"Rua Joao XXIV\",\r\n    \"numero\":\"02\",\r\n    \"bairro\":\"centro-oeste\",\r\n    \"cep\":\"76543210\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/adress",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"adress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"username\": \"kaiodf@gmail.com\",\r\n\t\"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User By Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrYWlvZGZAZ21haWwuY29tIiwiaWF0IjoxNjI0MjQxMjQ5LCJleHAiOjE2MjQyNTkyNDl9.-nGuGD_ejo5LWF2Ky30tvTPgCtm4p5RYrRCGeELsuJM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Adress By cep",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrYWlvZGZAZ21haWwuY29tIiwiaWF0IjoxNjI0MjQxMjQ5LCJleHAiOjE2MjQyNTkyNDl9.-nGuGD_ejo5LWF2Ky30tvTPgCtm4p5RYrRCGeELsuJM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/adress/03377040",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"adress",
+						"03377040"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrYWlvZGZAZ21haWwuY29tIiwiaWF0IjoxNjI0MjQ0MDIwLCJleHAiOjE2MjQyNjIwMjB9.vh9cKBXxuRr_F8PviDGE7oa449Vl1ucJvTeUOAKynZc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
